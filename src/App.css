@@ -286,7 +286,7 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.25; }
 }
 
 .hero-left h1{
-    font-size:67px;
+    font-size:70px;
     line-height:1.05;
     font-weight:900;
     margin-top:-5px;
@@ -295,7 +295,7 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.25; }
 .hero-left span { color: var(--green); }
 
 .hero-left p {
-  margin: 24px 0 32px;
+  margin: 34px 0 32px;
   font-size: 18px;
   line-height: 1.75;
   color: var(--text-muted);
