@@ -5,11 +5,11 @@ import { CartContext } from "../context/CartContext";
 import Navbar from "../components/Navbar";
 import MenuBar from "../components/MenuBar";
 import Footer from "../components/Footer";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 const API = "https://shelflife-5ob7.onrender.com";
 function Shop() {
   const location = useLocation();
-
+const navigate = useNavigate();
 const params = new URLSearchParams(location.search);
   
   const { addToCart } = useContext(CartContext);
@@ -60,6 +60,15 @@ console.log(url);
       console.log(err);
     });
 }, [search, category, maxPrice, sort]);
+useEffect(() => {
+  const params = new URLSearchParams();
+
+  if (search) params.set("search", search);
+  if (category) params.set("category", category);
+
+  navigate(`/shop?${params.toString()}`, { replace: true });
+
+}, [search, category]);
   return (
     <>
       <Navbar
@@ -136,6 +145,27 @@ console.log(url);
     onChange={(e) => setCategory(e.target.value)}
   />
   Staples
+</label>
+<label>
+  <input
+    type="radio"
+    name="category"
+    value="Personal Care"
+    checked={category === "Personal Care"}
+    onChange={(e) => setCategory(e.target.value)}
+  />
+  Personal Care
+</label>
+
+<label>
+  <input
+    type="radio"
+    name="category"
+    value="Home Care"
+    checked={category === "Home Care"}
+    onChange={(e) => setCategory(e.target.value)}
+  />
+  Home Care
 </label>
           <h3>Filter by Price</h3>
 
