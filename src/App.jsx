@@ -1,4 +1,4 @@
-import Register from "./pages/Register";
+
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -26,7 +26,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        
         <Route
           path="/dashboard" element={ <ProtectedRoute>
           <Dashboard />
