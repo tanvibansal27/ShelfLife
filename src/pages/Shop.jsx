@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import MenuBar from "../components/MenuBar";
 import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
+const API = "https://shelflife-5ob7.onrender.com";
 function Shop() {
   const location = useLocation();
 
@@ -31,7 +32,7 @@ useEffect(() => {
   const [sort, setSort] = useState("");
 
   useEffect(() => {
-  let url = "http://localhost:5001/api/products?";
+  let url = `${API}/api/products?`;
 
 if (search) {
   url += `search=${search}&`;

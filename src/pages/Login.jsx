@@ -1,7 +1,7 @@
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import MenuBar from "../components/MenuBar";
-
+const API = "https://shelflife-5ob7.onrender.com";
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -33,7 +33,7 @@ function Login() {
   const handleLogin = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5001/api/auth/login",
+  `${API}/api/auth/login`,
         {
           email: loginEmail,
           password: loginPassword,
@@ -59,7 +59,7 @@ function Login() {
   const handleRegister = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5001/api/auth/register",
+  `${API}/api/auth/register`,
         {
           name,
           email,

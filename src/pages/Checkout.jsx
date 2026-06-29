@@ -7,7 +7,7 @@ import { CartContext } from "../context/CartContext";
 import Navbar from "../components/Navbar";
 import MenuBar from "../components/MenuBar";
 import Footer from "../components/Footer";
-
+const API = "https://shelflife-5ob7.onrender.com";
 import {
   FaMapMarkerAlt,
   FaPhone,
@@ -81,8 +81,8 @@ function Checkout() {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await axios.post(
-      "http://localhost:5001/api/orders",
+    await axios.post(
+  `${API}/api/orders`,
       {
         products: cartItems.map((item) => ({
           productId: item._id,

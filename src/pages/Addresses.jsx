@@ -3,7 +3,7 @@ import axios from "axios";
 
 import Navbar from "../components/Navbar";
 import MenuBar from "../components/MenuBar";
-
+const API = "https://shelflife-5ob7.onrender.com";
 import {
   FaHome,
   FaBuilding,
@@ -36,9 +36,8 @@ function Addresses() {
   const fetchAddresses = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5001/api/addresses"
-      );
-
+  `${API}/api/addresses`
+);
       setAddresses(res.data);
     } catch (err) {
       console.log(err);
@@ -55,9 +54,9 @@ function Addresses() {
   const addAddress = async () => {
     try {
       await axios.post(
-        "http://localhost:5001/api/addresses",
-        form
-      );
+  `${API}/api/addresses`,
+  form
+);
 
       fetchAddresses();
 
@@ -82,9 +81,8 @@ function Addresses() {
 
     try {
       await axios.delete(
-        `http://localhost:5001/api/addresses/${id}`
-      );
-
+  `${API}/api/addresses/${id}`
+);
       fetchAddresses();
     } catch (err) {
       console.log(err);

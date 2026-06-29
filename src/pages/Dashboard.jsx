@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import MenuBar from "../components/MenuBar";
 import axios from "axios";
-
+const API = "https://shelflife-5ob7.onrender.com";
 import {
   FaHome,
   FaBoxOpen,
@@ -40,13 +40,13 @@ function Dashboard() {
     const token = localStorage.getItem("token");
 
     const res = await axios.get(
-      "http://localhost:5001/api/orders",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+  `${API}/api/orders`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
 
     setOrders(res.data);
 

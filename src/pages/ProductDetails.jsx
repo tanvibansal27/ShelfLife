@@ -7,6 +7,7 @@ import MenuBar from "../components/MenuBar";
 import Footer from "../components/Footer";
 import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
+const API = "https://shelflife-5ob7.onrender.com";
 function ProductDetails(){
 
     const { id } = useParams();
@@ -17,7 +18,7 @@ const [product, setProduct] = useState(null);
 
 useEffect(() => {
   axios
-    .get(`http://localhost:5001/api/products/${id}`)
+    .get(`${API}/api/products/${id}`)
     .then((res) => {
       setProduct(res.data);
     })
